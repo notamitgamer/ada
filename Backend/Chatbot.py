@@ -5,9 +5,9 @@ import os
 # ─── Configuration ─────────────────────────────────────────────────────────────
 USERNAME = "Amit Dutta"
 ASSISTANT_NAME = "Ada"
-GROQ_API = "Groq"
-SERPER_KEY = "Serper"
-YOUTUBE_KEY = "Youtube"
+GROQ_API = os.getenv("Groq")
+SERPER_KEY = os.getenv("Serper")
+YOUTUBE_KEY = os.getenv("Youtube")
 
 client = Groq(api_key=GROQ_API)
 SystemChatBot = [{"role": "system", "content": f"You are {ASSISTANT_NAME}, a powerful AI created by {USERNAME}. Answer accurately, clearly, and in English only."}]
