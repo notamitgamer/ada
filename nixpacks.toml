@@ -1,0 +1,5 @@
+[phases.setup]
+nixPkgs = ["python3"]
+
+[start]
+cmd = "npm run start" # Ensure this matches your package.json start command
