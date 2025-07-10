@@ -1,5 +1,6 @@
 import json, requests, datetime, re, wikipedia
 from groq import Groq
+import os
 
 # ─── Configuration ─────────────────────────────────────────────────────────────
 USERNAME = "Amit Dutta"
