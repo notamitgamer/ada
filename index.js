@@ -15,7 +15,7 @@ const qrcode = require("qrcode-terminal");
 const logger = pino().child({ level: "silent" });
 
 const runPythonScript = (text, sender, sock) => {
-    exec(`python ai.py "${text}" "${sender}"`, (error, stdout, stderr) => {
+    exec(`python3 ai.py "${text}" "${sender}"`, (error, stdout, stderr) => {
         if (error) {
             console.error("❌ Python Error:", error.message);
             return;
