@@ -1,9 +1,8 @@
 [phases.setup]
-nixPkgs = ["python3"]
-# REMOVED: nodeJs = "22" - Let Nixpacks auto-detect Node.js setup
+nixPkgs = ["nodejs", "python3"]
 
 [phases.install]
-cmds = ["npm install"] # Keep this to ensure npm dependencies are installed
+cmds = ["npm install"]
 
 [start]
 cmd = "npm run start"
