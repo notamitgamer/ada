@@ -1,5 +1,11 @@
 [phases.setup]
 nixPkgs = ["python3"]
+# Add Node.js explicitly
+nodeJs = "22" # Ensure this matches nodejs_22 from initial auto-detection
+
+[phases.install]
+# Explicitly run npm install (npm ci is for clean installs, npm install is more general)
+cmds = ["npm install"]
 
 [start]
-cmd = "npm run start" # Ensure this matches your package.json start command
+cmd = "npm run start"
