@@ -1,8 +1,28 @@
 {
+  "name": "your-whatsapp-bot",
+  "version": "1.0.0",
+  "description": "A WhatsApp bot powered by Baileys and Python AI",
+  "main": "index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "whatsapp-bot",
+    "baileys",
+    "node.js",
+    "python",
+    "ai",
+    "groq"
+  ],
+  "author": "Amit Dutta",
+  "license": "ISC",
   "dependencies": {
+    "@whiskeysockets/baileys": "6.7.18",
     "@hapi/boom": "^10.0.1",
-    "@whiskeysockets/baileys": "^6.7.18",
-    "pino": "^9.7.0",
+    "pino": "^9.2.0",
     "qrcode-terminal": "^0.12.0"
   }
 }
