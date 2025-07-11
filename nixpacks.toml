@@ -1,13 +1,15 @@
 [phases.setup]
-nixPkgs = ["nodejs"] # Remove all Python-related packages from nixPkgs
+nixPkgs = ["nodejs", "python310", "curl"] # Add python310 back, and 'curl' to download get-pip.py
 
 [phases.install]
 cmds = [
   "npm install",
-  # Add a specific Python executable to the PATH and ensure pip is there
-  "nix-shell -p python310 --run 'python3.10 -m ensurepip --default-pip'", # This attempts to get a python3.10 with ensurepip
-  "nix-shell -p python310 --run 'python3.10 -m pip install --upgrade pip setuptools wheel'", # Upgrade pip and essential tools
-  "nix-shell -p python310 --run 'python3.10 -m pip install -r requirements.txt'" # Install your project dependencies
+  # Download and run get-pip.py to ensure pip is installed
+  "curl -sSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py",
+  "python3.10 get-pip.py --force-reinstall", # Force reinstall pip for python3.10
+  "rm get-pip.py", # Clean up the script
+  "python3.10 -m pip install --upgrade pip setuptools wheel", # Upgrade pip and install essential build tools
+  "python3.10 -m pip install -r requirements.txt" # Finally, install your project dependencies
 ]
 
 [start]
