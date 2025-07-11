@@ -1,10 +1,12 @@
 [phases.setup]
-nixPkgs = ["nodejs", "python310", "python310Packages.pip"]
+nixPkgs = ["nodejs", "python310"] # Only include python310 here. We'll install pip manually.
 
 [phases.install]
 cmds = [
   "npm install",
-  "python3.10 -m pip install -r requirements.txt"
+  "python3.10 -m ensurepip --default-pip", # Manually ensure pip is installed for python3.10
+  "python3.10 -m pip install --upgrade pip setuptools wheel", # Upgrade pip and install essential build tools for pip
+  "python3.10 -m pip install -r requirements.txt" # Now install your project dependencies
 ]
 
 [start]
