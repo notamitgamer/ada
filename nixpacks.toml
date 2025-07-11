@@ -1,14 +1,11 @@
 [phases.setup]
-nixPkgs = ["nodejs", "python310"] # Only need python310 and nodejs
+nixPkgs = ["nodejs", "python310"]
 
 [phases.install]
 cmds = [
   "npm install",
-  "python3.10 -m venv .venv", # Create a virtual environment named .venv
-  "source .venv/bin/activate", # Activate the virtual environment
-  "pip install --upgrade pip setuptools wheel", # Upgrade pip and essential tools within the venv
-  "pip install -r requirements.txt" # Install your project dependencies within the venv
+  "python3.10 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip setuptools wheel && pip install -r requirements.txt"
 ]
 
 [start]
-cmd = "source .venv/bin/activate && npm run start" # IMPORTANT: Activate venv for start command too
+cmd = "source .venv/bin/activate && npm run start"
